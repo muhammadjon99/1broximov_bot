@@ -194,7 +194,7 @@ async def error_handler(update: object, context: ContextTypes.DEFAULT_TYPE):
 # Asosiy funksiya
 def main():
     init_db()  # Bazani yaratish
-    TOKEN = "7908977253:AAE8VAbZAgN2737ip2fnHu7k62yWizoaUsQ"  # 👈 O'ZINGIZNING BOT TOKENINGIZNI KIRITING!
+    TOKEN = ""  # 👈 O'ZINGIZNING BOT TOKENINGIZNI KIRITING!
     
     application = Application.builder().token(TOKEN).build()
 
@@ -216,6 +216,7 @@ def main():
 
 if __name__ == '__main__':
     main()
+
 
 
 
