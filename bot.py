@@ -1,5 +1,6 @@
 import logging
 import sqlite3
+import os
 from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
 from telegram.ext import Application, CommandHandler, ContextTypes, CallbackQueryHandler, MessageHandler, filters
 
@@ -194,7 +195,9 @@ async def error_handler(update: object, context: ContextTypes.DEFAULT_TYPE):
 # Asosiy funksiya
 def main():
     init_db()  # Bazani yaratish
-    TOKEN = ""  # 👈 O'ZINGIZNING BOT TOKENINGIZNI KIRITING!
+    TOKEN = os.getenv("TELEGRAM_BOT_TOKEN")  # 👈 O'ZINGIZNING BOT TOKENINGIZNI KIRITING!
+    if not TOKEN:
+    raise ValueError("❌ TELEGRAM_BOT_TOKEN environment variable not set!")
     
     application = Application.builder().token(TOKEN).build()
 
@@ -216,6 +219,7 @@ def main():
 
 if __name__ == '__main__':
     main()
+
 
 
 
